@@ -39,7 +39,7 @@ public class EmployeeController {
 	@GetMapping
 	public ResponseEntity<List<Employee>> findALL() {
 		LOGGER.info("employee find all");
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.findAll());
+		return ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
 		
 	}
 	@GetMapping("/department/{departmentId}")
