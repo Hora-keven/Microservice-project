@@ -2,6 +2,7 @@ package com.study.serviceregistry.controller;
 
 import java.util.List;
 
+import com.study.serviceregistry.model.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.study.serviceregistry.client.EmployeeClient;
 import com.study.serviceregistry.model.Department;
 import com.study.serviceregistry.repository.DepartmentRepository;
 
@@ -24,6 +26,9 @@ public class DepartmentController {
 	private DepartmentRepository repository;
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);
+	
+    @Autowired
+	private EmployeeClient employeeClient;
 	
 	@PostMapping
 	public ResponseEntity<Department> add(@RequestBody Department data) {
@@ -40,7 +45,16 @@ public class DepartmentController {
 	@GetMapping
 	public ResponseEntity<List<Department>> findALL() {
 		LOGGER.info("deparments find all");
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.findAll());
+		return ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
 		
 	}
+	@GetMapping("/with-employee")
+	public ResponseEntity<List<Department>> findALLWithEmployees() {
+		LOGGER.info("deparments find all");
+		List<Department> departments = repository.findAll();
+		departments.forEach(department -> department.setEmployees(employeeClient.findByDepartmentId(department.getId())));
+		return ResponseEntity.status(HttpStatus.OK).body(departments);
+		
+	}
+
 }
