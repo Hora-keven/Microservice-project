@@ -7,14 +7,7 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
-  instance:
-    instanceId: ${spring.application.name}
-    hostname: ${spring.application.name}
-    preferIpAddress: false
-    lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 20
-  
-      
+    
 management:
   tracing:
     sampling: 
