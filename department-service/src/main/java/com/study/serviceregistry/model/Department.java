@@ -6,7 +6,7 @@ import java.util.List;
 public class Department {
 	public Long id;
 	private String name;
-	private List<Employee> employess = new ArrayList<>();
+	private List<Employee> employees = new ArrayList<>();
 	
 	public Department(Long id, String name) {
 		super();
@@ -15,8 +15,8 @@ public class Department {
 	}
 	@Override
 	public String toString() {
-		return "Department [id=" + id + ", name=" + name + ", employess=" + employess + ", getId()=" + getId()
-				+ ", getName()=" + getName() + ", getEmployess()=" + getEmployess() + ", getClass()=" + getClass()
+		return "Department [id=" + id + ", name=" + name + ", employees=" + employees + ", getId()=" + getId()
+				+ ", getName()=" + getName() + ", getEmployess()=" + getEmployees() + ", getClass()=" + getClass()
 				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 	public Long getId() {
@@ -31,10 +31,10 @@ public class Department {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Employee> getEmployess() {
-		return employess;
+	public List<Employee> getEmployees() {
+		return employees;
 	}
-	public void setEmployess(List<Employee> employess) {
-		this.employess = employess;
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
 	}
 }
