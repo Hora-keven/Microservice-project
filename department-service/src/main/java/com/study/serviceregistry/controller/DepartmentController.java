@@ -1,8 +1,5 @@
 package com.study.serviceregistry.controller;
-
 import java.util.List;
-
-import com.study.serviceregistry.model.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.study.serviceregistry.client.EmployeeClient;
 import com.study.serviceregistry.model.Department;
 import com.study.serviceregistry.repository.DepartmentRepository;
